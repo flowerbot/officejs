@@ -16,8 +16,7 @@ Office.onReady((info) => {
 export async function run() {
   try {
     await Excel.run(async (context) => {
-
-       /**
+      /**
        * Insert your Excel code here
        */
      // const range = context.workbook.getSelectedRange();
@@ -77,25 +76,32 @@ export async function run() {
   
     // handle local area plan
   
-    const lapCols: string[] = LocalPlanTable.getColumnByName("Include").getRangeBetweenHeaderAndTotal().getValues().map(v => v[0] as string);
+    //const lapCols: string[] = LocalPlanTable.getColumnByName("Include").getRangeBetweenHeaderAndTotal().getValues().map(v => v[0] as string);
+    const lapCols = LocalPlanTable.getColumnByName("Include").getRangeBetweenHeaderAndTotal().getValues().map(v => v[0]);
   
     //console.log("lapCols:", lapCols);
   
-    const lapPlanCols: string[] = LocalPlanTable.getColumnByName("CP").getRangeBetweenHeaderAndTotal().getValues().map(v => v[0] as string);
+    //const lapPlanCols: string[] = LocalPlanTable.getColumnByName("CP").getRangeBetweenHeaderAndTotal().getValues().map(v => v[0] as string);
+    const lapPlanCols = LocalPlanTable.getColumnByName("CP").getRangeBetweenHeaderAndTotal().getValues().map(v => v[0]);
     /*
       const wwwCols = wwwTable.getColumnByName("Include").getRangeBetweenHeaderAndTotal().getValues().filter((v, i, a) => v[0] as string == "Yes" 
       );
     */
-    const wwwColsArray = wwwTable.getRangeBetweenHeaderAndTotal().getValues().filter((v, i, a) => a[i][1] as string == "Yes"
+    //const wwwColsArray = wwwTable.getRangeBetweenHeaderAndTotal().getValues().filter((v, i, a) => a[i][1] as string == "Yes"
+    const wwwColsArray = wwwTable.getRangeBetweenHeaderAndTotal().getValues().filter((v, i, a) => a[i][1]  == "Yes"
     );
   
-    const wwwCols: string[] = [];
+    //const wwwCols: string[] = [];
+    const wwwCols = [];
     wwwColsArray.forEach(v => wwwCols.push(String(v[0])));
   
     console.log("wwwCols:", wwwCols);
   
-    let bumpCP: string[] = [];
-    let hideCP: string[] = [];
+    //let bumpCP: string[] = [];
+    //let hideCP: string[] = [];
+
+    let bumpCP = [];
+    let hideCP = [];
   
     for (let i = 0; i < lapCols.length; i++) {
   
@@ -113,8 +119,8 @@ export async function run() {
     }
   
   
-    let incWWW: string[] = [];
-  
+    //let incWWW: string[] = [];
+    let incWWW = [];
     //for(let i=0; i<)
   
     console.log("bumpCP:", bumpCP);
@@ -127,9 +133,11 @@ export async function run() {
       //*********************** */
       // make Group filter (works)
   
-      const groups: string[] = rateTable.getColumnByName("Group").getRangeBetweenHeaderAndTotal().getValues().map(v => v[0] as string);
-  
-      let groupFilterArray: string[] = [];
+      //const groups: string[] = rateTable.getColumnByName("Group").getRangeBetweenHeaderAndTotal().getValues().map(v => v[0] as string);
+      const groups = rateTable.getColumnByName("Group").getRangeBetweenHeaderAndTotal().getValues().map(v => v[0] );
+
+     // let groupFilterArray: string[] = [];
+      let groupFilterArray = [];
   
       //include all except active water/sewer
       groups.forEach(v => {
@@ -177,7 +185,8 @@ export async function run() {
       console.log("totalTrips:", totalTrips);
   
   
-      let excludeRows: string[] = [];
+     // let excludeRows: string[] = [];
+      let excludeRows = [];
   
       //only do this if on a stage sheet
   
@@ -221,7 +230,8 @@ export async function run() {
   
         const preCol = rateTable.getColumnByName("prefix");
   
-        const prefixFilterArray: string[] = [];
+       // const prefixFilterArray: string[] = [];
+        const prefixFilterArray = [];
   
         console.log("Is it getting here when empty");
   
@@ -247,9 +257,11 @@ export async function run() {
         //************************* */
         // make charge_type Filter
   
-        const chargeTypes: string[] = rateTable.getColumnByName("charge_type").getRangeBetweenHeaderAndTotal().getValues().map(v => v[0] as string);
+        //const chargeTypes: string[] = rateTable.getColumnByName("charge_type").getRangeBetweenHeaderAndTotal().getValues().map(v => v[0] as string);
+        const chargeTypes = rateTable.getColumnByName("charge_type").getRangeBetweenHeaderAndTotal().getValues().map(v => v[0]);
   
-        let ctFilterArray: string[] = [];
+       // let ctFilterArray: string[] = [];
+        let ctFilterArray = [];
   
         chargeTypes.forEach(v => {
   
@@ -344,6 +356,7 @@ export async function run() {
       // Return the number of empty rows for use in a Power Automate flow.
       return emptyRows;
       */
+
 
 
     });
