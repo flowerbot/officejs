@@ -35,9 +35,9 @@ export async function run() {
     //const sheet = workbook.getWorksheet(sheetName);
   
     //nb to be run on the 'active' sheet which should be a 'Stage' sheet containing rates
-    const rateSheet = context.workbook.worksheets.getActiveWorksheet();
-    const sheetN = rateSheet.getName();
-    const rateTable = rateSheet.getTables()[0];
+    //const rateSheet = context.workbook.worksheets.getActiveWorksheet();
+    //const sheetN = rateSheet.getName();
+    const rateTable = context.workbook.worksheets.getActiveWorksheet().getTables()[0];
   
     // Get the entire data range.
     //const range = sheet.getUsedRange(true);
@@ -327,36 +327,6 @@ export async function run() {
       console.log("********* NOT A STAGE SHEET ************");
     }
   
-    /*
-      // Log the address of the used range.
-      console.log(`Used range for the worksheet: ${range.getAddress()}`);
-    
-      // Look through the values in the range for blank rows.
-      const values = range.getValues();
-      let emptyRows = 0;
-      for (let row of values) {
-        let emptyRow = true;
-    
-        // Look at every cell in the row for one with a value.
-        for (let cell of row) {
-          if (cell.toString().length > 0) {
-            emptyRow = false
-          }
-        }
-    
-        // If no cell had a value, the row is empty.
-        if (emptyRow) {
-          emptyRows++;
-        }
-      }
-    
-      // Log the number of empty rows.
-      console.log(`Total empty rows: ${emptyRows}`);
-    
-      // Return the number of empty rows for use in a Power Automate flow.
-      return emptyRows;
-      */
-
 
 
     });
