@@ -35,7 +35,7 @@ export async function run() {
     //const sheet = workbook.getWorksheet(sheetName);
   
     //nb to be run on the 'active' sheet which should be a 'Stage' sheet containing rates
-    const rateSheet = context.workbook.getActiveWorksheet();
+    const rateSheet = context.workbook.worksheets.getActiveWorksheet();
     const sheetN = rateSheet.getName();
     const rateTable = rateSheet.getTables()[0];
   
