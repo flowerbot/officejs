@@ -6,8 +6,8 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Contribution Calculator"/>
   <Description DefaultValue="A template to get started."/>
-  <IconUrl DefaultValue="https://flowerbot.github.io/officejs/Excel/ContributionCalculator/assets//iccIcon.png"/>
-  <HighResolutionIconUrl DefaultValue="https://flowerbot.github.io/officejs/Excel/ContributionCalculator/assets//iccIcon.png"/>
+  <IconUrl DefaultValue="https://flowerbot.github.io/officejs/Excel/ContributionCalculator/assets/iccIcon.png"/>
+  <HighResolutionIconUrl DefaultValue="https://flowerbot.github.io/officejs/Excel/ContributionCalculator/assets/iccIcon.png"/>
   <SupportUrl DefaultValue="https://www.contoso.com/help"/>
   <AppDomains>
     <AppDomain>https://tweednswgovau.sharepoint.com/sites/InfrastructurePlanning</AppDomain>
